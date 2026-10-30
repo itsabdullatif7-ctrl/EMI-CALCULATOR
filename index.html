@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10231f">
+  <meta name="description" content="Plan your monthly loan payments with a simple EMI calculator.">
+  <title>EMI Calculator | Fieldnotes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#home" aria-label="Fieldnotes home"><span class="brand-mark" aria-hidden="true">f.</span> fieldnotes</a>
+      <span class="topbar-note"><span class="status-dot" aria-hidden="true"></span> A clearer view of your next move</span>
+    </header>
+
+    <section class="intro" id="home" aria-labelledby="page-title">
+      <p class="eyebrow">A LITTLE MORE CLARITY</p>
+      <h1 id="page-title">Make room for<br><span>what comes next.</span></h1>
+      <p class="intro-copy">Adjust a few numbers. See what your monthly commitment could look like.</p>
+    </section>
+
+    <section class="calculator" aria-label="EMI calculator">
+      <div class="inputs-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">YOUR LOAN</p>
+            <h2>Set the numbers</h2>
+          </div>
+          <span class="step-label">01 <span>/</span> 02</span>
+        </div>
+
+        <div class="field-group">
+          <div class="field-heading">
+            <label for="loanAmount">Loan amount</label>
+            <div class="number-wrap"><span aria-hidden="true">₹</span><input id="loanAmount" type="number" min="10000" max="100000000" step="10000" value="2500000" inputmode="numeric" aria-describedby="amount-range"></div>
+          </div>
+          <input class="range" id="amountRange" type="range" min="10000" max="100000000" step="10000" value="2500000" aria-label="Loan amount slider">
+          <div class="range-labels" id="amount-range"><span>₹10,000</span><span>₹10 Cr</span></div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-heading">
+            <label for="interestRate">Interest rate</label>
+            <div class="number-wrap"><input id="interestRate" type="number" min="0" max="30" step="0.05" value="8.5" inputmode="decimal"><span aria-hidden="true">%</span></div>
+          </div>
+          <input class="range" id="rateRange" type="range" min="0" max="30" step="0.05" value="8.5" aria-label="Annual interest rate slider">
+          <div class="range-labels"><span>0%</span><span>30%</span></div>
+        </div>
+
+        <div class="field-group field-group-last">
+          <div class="field-heading">
+            <label for="loanTerm">Loan tenure</label>
+            <div class="number-wrap"><input id="loanTerm" type="number" min="1" max="30" step="1" value="20" inputmode="numeric"><span aria-hidden="true">yr</span></div>
+          </div>
+          <input class="range" id="termRange" type="range" min="1" max="30" step="1" value="20" aria-label="Loan tenure slider">
+          <div class="range-labels"><span>1 year</span><span>30 years</span></div>
+        </div>
+
+        <p class="fine-print">Estimate only. Your lender may calculate fees and repayment terms differently.</p>
+      </div>
+
+      <div class="results-panel" aria-live="polite" aria-atomic="true">
+        <div class="result-topline"><span>YOUR ESTIMATE</span><span class="sparkle" aria-hidden="true">✳</span></div>
+        <p class="result-label">Monthly payment</p>
+        <p class="emi-value" id="emiValue">₹21,696<span> / month</span></p>
+        <div class="result-divider"></div>
+        <div class="breakdown-heading"><span>Repayment breakdown</span><span id="totalLabel">Total repayment</span></div>
+        <div class="breakdown-bar" role="img" aria-label="Repayment breakdown between principal and interest">
+          <span class="principal-segment" id="principalSegment"></span>
+          <span class="interest-segment" id="interestSegment"></span>
+        </div>
+        <div class="breakdown-values">
+          <div class="breakdown-item"><span class="legend-dot principal-dot"></span><div><span class="breakdown-name">Principal</span><strong id="principalValue">₹25,00,000</strong></div></div>
+          <div class="breakdown-item"><span class="legend-dot interest-dot"></span><div><span class="breakdown-name">Interest</span><strong id="interestValue">₹27,07,070</strong></div></div>
+        </div>
+        <div class="total-row"><span>Total repayment</span><strong id="totalValue">₹52,07,070</strong></div>
+        <p class="result-footnote">Across <strong id="monthsValue">240 monthly payments</strong></p>
+      </div>
+    </section>
+
+    <footer class="footer"><span>Plan thoughtfully. Move confidently.</span><span>EMI = Equated Monthly Instalment</span></footer>
+  </main>
+</body>
+</html>
